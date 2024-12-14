@@ -281,20 +281,20 @@ app.get('/hotels/sort/reviews', (req, res) => {
   res.json({ hotels: result });
 });
 
-app.get('/hotels/filter/amenity', (req, res) => {
-  let amenity = req.query.amenity.toLowerCase();
+app.get('/hotels/amenity/:amenity', (req, res) => {
+  let amenity = req.params.amenity.toLowerCase();
   let result = hotels.filter((hotel) => filterByAmenity(hotel, amenity));
   res.json({ hotels: result });
 });
 
-app.get('/hotels/filter/country', (req, res) => {
-  let country = req.query.country.toLowerCase();
+app.get('/hotels/country/:country', (req, res) => {
+  let country = req.params.country.toLowerCase();
   let result = hotels.filter((hotel) => filterByCountry(hotel, country));
   res.json({ hotels: result });
 });
 
-app.get('/hotels/filter/category', (req, res) => {
-  let category = req.query.category.toLowerCase();
+app.get('/hotels/category/:category', (req, res) => {
+  let category = req.params.category.toLowerCase();
   let result = hotels.filter((hotel) => filterByCategory(hotel, category));
   res.json({ hotels: result });
 });
